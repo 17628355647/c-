@@ -1,0 +1,6 @@
+﻿  c语言操作符详解.c
+D:\c_daima\操作符详解\c语言操作符详解.c(164,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+D:\c_daima\操作符详解\c语言操作符详解.c(164,9): message : 请考虑在格式字符串中使用“%zd”
+D:\c_daima\操作符详解\c语言操作符详解.c(165,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+D:\c_daima\操作符详解\c语言操作符详解.c(165,9): message : 请考虑在格式字符串中使用“%zd”
+  操作符详解.vcxproj -> D:\c_daima\操作符详解\x64\Debug\操作符详解.exe
