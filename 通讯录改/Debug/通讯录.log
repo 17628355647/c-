@@ -1,0 +1,5 @@
+﻿  通讯录.c
+D:\c_daima\通讯录\通讯录.c(17,20): warning C4047: “函数”:“Contact **”与“Contact *”的间接级别不同
+D:\c_daima\通讯录\通讯录.c(17,18): warning C4024: “Checkcapacity”: 形参和实参 1 的类型不同
+D:\c_daima\通讯录\通讯录.c(48,36): warning C4028: 形参 1 与声明不同
+  通讯录.vcxproj -> D:\c_daima\通讯录\Debug\通讯录.exe
