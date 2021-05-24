@@ -269,36 +269,146 @@
 // fwrite函数。size_t fwrite(const void* buffer,size_t size,size_t count,FILE* stream);  
 //  把任意类型变量的地址指向的内容，写count个 size字节大小的内容 到文件流上。
 
-struct S
-{
-	char name[20];
-	int age;
-	double d;
-};
-int main()
-{
-	//struct S s = { "张三",12,1.82 };
-	//FILE* p = fopen("test.txt", "wb");
-	//if (p == NULL)
-	//{
-	//	printf("%s", strerror(errno));
-	//	return 0;
-	//}
-	//fwrite(&s,sizeof(s),1,p);     // 写文件
-	//fclose(p);
-	//p = NULL;
+//struct S
+//{
+//	char name[20];
+//	int age;
+//	double d;
+//};
+//int main()
+//{
+//	//struct S s = { "张三",12,1.82 };
+//	//FILE* p = fopen("test.txt", "wb");
+//	//if (p == NULL)
+//	//{
+//	//	printf("%s", strerror(errno));
+//	//	return 0;
+//	//}
+//	//fwrite(&s,sizeof(s),1,p);     // 写文件
+//	//fclose(p);
+//	//p = NULL;
+//
+//
+//	struct S s = { 0 };
+//	FILE* pr = fopen("test.txt", "rb");
+//	if (pr == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 0;
+//	}
+//	fread(&s, sizeof(s), 1, pr);  // 读文件
+//
+//	fclose(pr);
+//	pr = NULL;
+//	return 0;
+//}
 
 
-	struct S s = { 0 };
-	FILE* pr = fopen("test.txt", "rb");
-	if (pr == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return 0;
-	}
-	fread(&s, sizeof(s), 1, pr);  // 读文件
 
-	fclose(pr);
-	pr = NULL;
-	return 0;
-}
+// 文件的随机读写
+// fseek函数。根据文件指针的位置和偏移量来定位文件指针。
+// int fseek(FILE* stream,long offset,int origin);  offest 偏移量。origin 文件指针位置
+
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//		return 0;
+//	// 1.定位文件指针。2.读取文件
+//	//fseek(pf, 2, SEEK_CUR);  // SEEK_CUR 表示文件指针当前位置。同理，SEEK_END 表示文件末尾位置。SEEK_SET 表示文件起始位置
+//	fseek(pf, 2, SEEK_SET);  // 文件指针从文件起始位置，向后偏移2个字节
+//	int ch = fgetc(pf);
+//	printf("%c\n", ch);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+// ftell函数。返回文件指针相对起始位置的偏移量。
+// long ftell(FILE* stream);
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//		return 0;
+//	fseek(pf, -3, SEEK_END);  
+//	int ch = fgetc(pf);
+//	printf("偏移量:%d\n", ftell(pf));
+//	printf("%c\n", ch);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+
+
+// rewind函数。让文件指针的位置回到文件的起始位置。
+// void rewind(FILE* stream);
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//		return 0;
+//	fseek(pf, 2, SEEK_SET);  // 文件指针从文件起始位置，向后偏移2个字节
+//	int ch = fgetc(pf);
+//	printf("%c\n", ch);
+//	printf("偏移量：%d\n", ftell(pf));
+//	rewind(pf);  // 让文件指针的位置回到文件的起始位置。
+//	printf("偏移量：%d\n",ftell(pf));
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+
+// 文件结束判断
+//int main()
+//{
+//	//EOF;  // EOF - end of file 文件结束标志。值为-1
+//
+//	// 在文件读取过程中，不能用feof函数的返回值直接用来判断文件是否结束。
+//	// 而是应用于 当文件读取结束时，判断是读取失败结束，还是遇到文件结尾而结束。
+//
+//	// 1.文本文件读取是否结束，判断返回值是否为EOF，或者NULL，即可。例如，fgetc判断读取的字符返回值是否为-1。fgets判断返回值是否为NULL
+//	// 2.二进制文件的读取结束判断。判断返回值是否小于实际要读的个数。
+//
+//	FILE* p = fopen("test.txt", "r");
+//	if (p == NULL)
+//	{
+//		perror("文件打开失败");  
+//		return 0;
+//	}
+//	int c = 0;
+//	while (c != EOF)
+//	{
+//		c = fgetc(p);
+//		printf("%c", c);
+//	}
+//	printf("\n");
+//	if (ferror(p))
+//	{
+//		printf("文件读取错误\n");
+//	}
+//	else if(feof(p))
+//	{
+//		printf("文件读取结束\n");
+//	}
+//	fclose(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+
+
+// ferror函数。测试 流上的错误。
+// int ferror(FILE* stream);
